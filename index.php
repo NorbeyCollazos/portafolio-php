@@ -16,14 +16,14 @@ if ($_GET) {
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Portafolio|Norbey Collazos Ramirez</title>
   <!-- MDB icon -->
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
-  <link rel="stylesheet" href="css/mdb.min.css" />
-  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="assets/css/mdb.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
@@ -33,7 +33,7 @@ if ($_GET) {
 <body>
   <header class="p-5 text-center bg-image">
 
-    <img class="img-fluid w-50 p-3" id="logo" src="img/logo_blanco.png" alt="logo large">
+    <img class="img-fluid w-50 p-3" id="logo" src="assets/img/logo_blanco.png" alt="logo large">
     <div class="d-flex justify-content-center align-items-center h-100 sobreponer" style="z-index: 100;">
       <div class="text-white">
         <h1 class="mb-3" id="ncr">NCR <span id="desarrollo">Desarrollo</span></h1>
@@ -46,7 +46,7 @@ if ($_GET) {
     </div>
 
     <video autoplay="" loop="" muted="">
-      <source src="src/videohead.mp4">
+      <source src="assets/src/videohead.mp4">
     </video>
 
 
@@ -74,6 +74,8 @@ if ($_GET) {
 
               <div class="row">
 
+
+
                 <?php
                 for ($i = 0; $i < 5; $i++) {
 
@@ -99,6 +101,13 @@ if ($_GET) {
                 }
                 ?>
 
+
+
+                
+
+
+
+
               </div>
 
 
@@ -122,7 +131,7 @@ if ($_GET) {
   <!-- End your project here-->
 
   <!-- MDB -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="assets/js/mdb.min.js"></script>
   <!-- Custom scripts -->
   <script type="text/javascript"></script>
   <script>
