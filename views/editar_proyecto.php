@@ -1,3 +1,9 @@
+<?php
+require_once('../models/Administradores.php');
+$ModelAdministradores = new Administradores();
+$ModelAdministradores->validateSession();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
