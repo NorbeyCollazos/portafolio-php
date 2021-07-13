@@ -1,14 +1,14 @@
 <?php
 require_once('../models/Administradores.php');
-require_once('../models/Tecnologias.php');
+require_once('../models/Imagenes.php');
 $ModelAdministradores = new Administradores();
 $ModelAdministradores->validateSession();
 
-$ModelTecnologias = new Tecnologias();
+$ModelImagenes = new Imagenes();
 $id = $_GET['id'];
-$Tecnologias = $ModelTecnologias->getById($id);
+$idproyectos = $_GET['idproyectos'];
+$Imagenes = $ModelImagenes->getById($id);
 
-$Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 ?>
 
@@ -19,7 +19,7 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adminisrador</title>
+    <title>Editar imagen</title>
     <!-- MDB icon -->
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
@@ -52,7 +52,7 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link">EDITAR TECNOLOGÍA</a>
+                        <a class="nav-link">EDITAR PROYECTO</a>
                     </li>
                 </ul>
                 <!-- Left links -->
@@ -71,62 +71,42 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     </nav>
     <!-- Navbar -->
 
+    <div class="container p-3">
 
-    <div class="container mt-3 mb-3">
+        <h3 class="">Editar Imagen</h3>
 
-        <form action="../controllers/editar_tecnologia.php" method="post">
-            <!-- 2 column grid layout with text inputs for the first and last names -->
+        <form action="../controllers/editar_imagen.php" method="post" enctype="multipart/form-data">
 
             <input type="hidden" name="id" value="<?php echo $id ?>" />
+            <input type="hidden" name="idproyectos" value="<?php echo $idproyectos ?>" />
 
-            <?php if ($Tecnologias != null) {
-                foreach ($Tecnologias as $Tecnologia) {
+            <?php
+            if ($Imagenes != null) {
+                foreach ($Imagenes as $Imagen) {
             ?>
 
-                    <div class="form-outline mb-4 col-md-6 col-lg-6 col-sm-12">
-                        <input type="text" id="form6Example1" class="form-control" name="titulo" value="<?php echo $Tecnologia['titulo'] ?>" />
-                        <label class="form-label" for="form6Example1">Título</label>
-                    </div>
+                    <img width="80" height="80" src="../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?>" alt="">
+                    <br>
+                    <label class="form-label" for="customFile">Imagen</label>
+                    <input type="file" class="form-control" id="customFile" name="imagen" />
+                    <input type="hidden" class="form-control" name="nombreimagen" value="<?php echo $Imagen['urlimagen'] ?>" />
 
-                    <!-- Text input -->
-                    <div class="form-outline mb-4 col-md-6 col-lg-6 col-sm-12">
-                        <input type="text" id="form6Example3" class="form-control" name="etiqueta" value="<?php echo $Tecnologia['etiqueta'] ?>" />
-                        <label class="form-label" for="form6Example3">Etiqueta</label>
-                    </div>
-
-                    <div class="form-outline mb-4 col-md-6 col-lg-6 col-sm-12">
-                        <select name="prioridad" required class="form-select" aria-label="Default select example">
-                            <option value="<?php echo $Tecnologia['prioridad'] ?>">Prioridad actual: <?php echo $Tecnologia['prioridad'] ?></option>
-                            <?php
-                            foreach ($Prioridades as $Prioridad) {
-                            ?>
-                                <option value="<?php echo $Prioridad ?>"> <?php echo $Prioridad ?> </option>
-
-                            <?php
-                            }
-                            ?>
-                        </select>
+                    <div class="form-outline mt-4 mb-4">
+                        <input type="text" id="form6Example1" class="form-control" name="descripcion" value="<?php echo $Imagen['descripcion'] ?>" />
+                        <label class="form-label" for="form6Example1">Descripción</label>
                     </div>
 
             <?php
-
                 }
             }
-
             ?>
-
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-primary btn-rounded mb-4">Editar</button>
+            <button type="submit" class="btn btn-outline-primary btn-rounded">Editar</button>
         </form>
 
     </div>
 
-
-
-
     <?php include('../footer.php'); ?>
 
-    <!-- End your project here-->
 
     <!-- MDB -->
     <script type="text/javascript" src="../assets/js/mdb.min.js"></script>

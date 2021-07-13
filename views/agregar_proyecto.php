@@ -1,7 +1,14 @@
 <?php
 require_once('../models/Administradores.php');
+require_once('../models/Tecnologias.php');
 $ModelAdministradores = new Administradores();
 $ModelAdministradores->validateSession();
+
+$ModelTecnologias = new Tecnologias();
+$Tecnologias = $ModelTecnologias->get();
+
+$Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +77,7 @@ $ModelAdministradores->validateSession();
 
   <div class="container mt-3 mb-3">
 
-    <form action="../controllers/agregar_proyecto.php" method="post">
+    <form action="../controllers/agregar_proyecto.php" method="post" enctype="multipart/form-data">
       <!-- 2 column grid layout with text inputs for the first and last names -->
 
       <div class="form-outline mb-4 col-md-6 col-lg-6 col-sm-12">
@@ -86,7 +93,7 @@ $ModelAdministradores->validateSession();
 
       <div class="mb-4 col-md-6 col-lg-6 col-sm-12">
         <label class="form-label" for="customFile">Imagen</label>
-        <input type="file" class="form-control" id="customFile" />
+        <input type="file" class="form-control" id="customFile" name="imagen" />
       </div>
 
 
@@ -101,6 +108,38 @@ $ModelAdministradores->validateSession();
         <input type="url" id="form6Example3" class="form-control" name="urldemo" />
         <label class="form-label" for="form6Example3">Url Demo</label>
       </div>
+
+      <!-- Text url -->
+      <div class="form-outline mb-4 col-md-6 col-lg-6 col-sm-12">
+        <select name="idtecnologias" required class="form-select" aria-label="Default select example">
+          <option>Seleccione la tecnología</option>
+          <?php
+          if ($Tecnologias != null) {
+            foreach ($Tecnologias as $Tecnologia) {
+
+          ?>
+              <option value="<?php echo $Tecnologia['idtecnologias'] ?>"><?php echo $Tecnologia['titulo'] ?></option>
+          <?php
+            }
+          }
+          ?>
+        </select>
+      </div>
+
+      <div class="form-outline mb-4 col-md-6 col-lg-6 col-sm-12">
+        <select name="prioridad" required class="form-select" aria-label="Default select example">
+          <option>Seleccione la prioridad</option>
+          <?php
+          foreach ($Prioridades as $Prioridad) {
+          ?>
+            <option value="<?php echo $Prioridad ?>"> <?php echo $Prioridad ?> </option>
+
+          <?php
+          }
+          ?>
+        </select>
+      </div>
+
 
       <!-- Submit button -->
       <button type="submit" class="btn btn-outline-primary btn-rounded mb-4">Registrar</button>

@@ -33,7 +33,7 @@
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
 
     <a class="text-white" href="https://ncrdesarrollo.com/" target="_blank">ncrdesarrollo.com</a>
-    <a href="views/login_admin.php">Admin</a>
+    <a href="views/login_admin.php" target="_blank">Admin</a>
     
   </div>
   <!-- Copyright -->
