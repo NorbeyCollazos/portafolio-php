@@ -66,6 +66,15 @@ class Proyectos extends Conexion {
         return $rows;
     }
 
+    public function getTitleTecnologia($idtecnologias){
+        $statement = $this->db->prepare("SELECT T.titulo, P.descripcion FROM proyectos P
+        JOIN tecnologias T ON P.idtecnologias = T.idtecnologias
+        WHERE P.idtecnologias = :idtecnologias");
+        $statement->bindParam(':idtecnologias',$idtecnologias);
+        $statement->execute();
+        return $statement->fetchColumn();
+    }
+
 
 
     public function edit($id, $titulo, $descripcion, $imagen, $urlgithub, $urldemo, $prioridad, $idtecnologias)

@@ -3,7 +3,7 @@ require_once('../models/Tecnologias.php');
 require_once('../models/Proyectos.php');
 
 if ($_GET) {
-  $t = $_GET['t'];
+  //$t = $_GET['t'];
   $id = $_GET['id'];
 }
 
@@ -12,7 +12,7 @@ $Tecnologias = $ModelTecnologias->get();
 
 $ModelProyectos = new Proyectos();
 
-
+$TitleTecnologia = $ModelProyectos->getTitleTecnologia($id); 
 
 ?>
 
@@ -71,7 +71,9 @@ $ModelProyectos = new Proyectos();
     ?>
       <div class="card p-3 mb-3">
         <div class="card my-3 p-3">
-          <h3>Proyectos en <?php echo $t ?></h3>
+          <h3><?php
+            echo $ModelProyectos->getTitleTecnologia($id);
+          ?></h3>
         </div>
         <div class="row">
 
