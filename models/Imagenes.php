@@ -42,6 +42,17 @@ class Imagenes extends Conexion {
         return $row;
     }
 
+    public function getByIdProyecto($idproyectos){
+        $row = null;
+        $statement = $this->db->prepare("SELECT * FROM imagenes WHERE idproyectos = :idproyectos");
+        $statement->bindParam(':idproyectos', $idproyectos);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $row[] = $result;
+        }
+        return $row;
+    }
+
     public function edit($id, $imagen, $descripcion, $idproyectos){
         $statement = $this->db->prepare("UPDATE imagenes SET urlimagen = :imagen, descripcion = :descripcion
         WHERE idimagenes = :id");

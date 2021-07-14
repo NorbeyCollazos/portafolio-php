@@ -53,6 +53,21 @@ class Proyectos extends Conexion {
         return $rows;
     }
 
+    public function getByIdTecnologia($idtecnologias){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT * FROM proyectos 
+        WHERE idtecnologias = :idtecnologias
+        ORDER BY prioridad ASC");
+        $statement->bindParam(':idtecnologias', $idtecnologias);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+
+
     public function edit($id, $titulo, $descripcion, $imagen, $urlgithub, $urldemo, $prioridad, $idtecnologias)
     {
         $statement = $this->db->prepare("UPDATE proyectos SET titulo = :titulo, descripcion = :descripcion, imagen = :imagen, urlgithub = :urlgithub, urldemo = :urldemo, prioridad = :prioridad, idtecnologias = :idtecnologias

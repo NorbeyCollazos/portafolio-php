@@ -61,7 +61,7 @@ if (!empty($_SESSION["ID"])) {
 
 
 
-    <?php include('../footer.php'); ?>
+    <?php include('footer.php'); ?>
 
     <!-- End your project here-->
 

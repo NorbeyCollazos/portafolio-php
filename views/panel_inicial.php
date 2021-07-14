@@ -38,43 +38,14 @@ if($_GET){
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Container wrapper -->
-        <div class="container">
-            <!-- Navbar brand -->
-            <a class="navbar-brand me-2" href="../index.php">
-                <img src="../assets/img/logo_ncr_desarrollo.png" height="50" alt="" loading="lazy" style="margin-top: -1px;" />
-            </a>
-
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarButtonsExample">
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link">PANEL INICIAL</a>
-                    </li>
-                </ul>
-                <!-- Left links -->
-
-                <div class="d-flex align-items-center">
-                    <a class="btn btn-link px-3" href="../controllers/Salir.php">
-                        Cerrar sesión <i class="fas fa-sign-out-alt"></i></a>
-                </div>
-            </div>
-            <!-- Collapsible wrapper -->
-        </div>
-        <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar -->
+<?php include('header.php'); ?>
 
 
     <div class="container mt-3 mb-3">
+
+        <div class="card p-1 text-center">
+            <h5>PANEL INICIAL</h5>
+        </div>
 
         <!-- Tabs navs -->
         <ul class="nav nav-tabs nav-fill mb-3" id="ex1" role="tablist">
@@ -100,6 +71,7 @@ if($_GET){
                 <table class="table mt-2 align-middle table-bordered">
                     <thead>
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">TÍTULO</th>
                             <th scope="col">ETIQUETA</th>
                             <th scope="col">ACCIONES</th>
@@ -113,6 +85,7 @@ if($_GET){
                         ?>
 
                                 <tr>
+                                    <td scope="row"><?php echo $Tecnologia['idtecnologias'] ?></td>
                                     <td><?php echo $Tecnologia['titulo'] ?></td>
                                     <td><?php echo $Tecnologia['etiqueta'] ?></td>
                                     <td>
@@ -179,7 +152,7 @@ if($_GET){
 
 
 
-    <?php include('../footer.php'); ?>
+    <?php include('footer.php'); ?>
 
     <!-- End your project here-->
 
