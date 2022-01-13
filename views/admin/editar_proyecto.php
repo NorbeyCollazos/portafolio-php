@@ -1,8 +1,8 @@
 <?php
-require_once('../models/Administradores.php');
-require_once('../models/Proyectos.php');
-require_once('../models/Tecnologias.php');
-require_once('../models/Imagenes.php');
+require_once('../../models/admin/Administradores.php');
+require_once('../../models/admin/Proyectos.php');
+require_once('../../models/admin/Tecnologias.php');
+require_once('../../models/admin/Imagenes.php');
 $ModelAdministradores = new Administradores();
 $ModelAdministradores->validateSession();
 
@@ -29,14 +29,14 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adminisrador</title>
   <!-- MDB icon -->
-  <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../../assets/img/favicon.ico" type="image/x-icon" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
-  <link rel="stylesheet" href="../assets/css/mdb.min.css" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/mdb.min.css" />
+  <link rel="stylesheet" href="../../assets/css/main.css" />
 
   <!-- CDN CKEditor -->
   <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
@@ -45,7 +45,7 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 <body>
 
-<?php include('header.php'); ?>
+<?php include('../header.php'); ?>
 
 
   <div class="container mt-3 mb-3">
@@ -57,7 +57,7 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12">
 
-        <form action="../controllers/editar_proyecto.php" method="post" enctype="multipart/form-data">
+        <form action="../../controllers/admin/editar_proyecto.php" method="post" enctype="multipart/form-data">
           <!-- 2 column grid layout with text inputs for the first and last names -->
           <input type="hidden" name="id" value="<?php echo $id; ?>" />
 
@@ -76,7 +76,7 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
                 <textarea class="form-control" id="form4Example3" rows="4" id="descripcion" name="descripcion"><?php echo $Proyecto['descripcion'] ?></textarea>
 
               </div>
-              <img src="../assets/img/proyectos/<?php echo $Proyecto['imagen'] ?>" width="80" height="80" alt="">
+              <img src="../../assets/img/proyectos/<?php echo $Proyecto['imagen'] ?>" width="80" height="80" alt="">
               <div class="mb-4">
                 <label class="form-label" for="customFile">Imagen</label>
                 <input type="file" class="form-control" id="customFile" name="imagen" />
@@ -164,11 +164,11 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
             ?>
                 <tr>
                   <td>
-                    <img src="../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?> " class="img-fluid rounded-circle" style="width: 80px; height: 80px;" />
+                    <img src="../../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?> " class="img-fluid rounded-circle" style="width: 80px; height: 80px;" />
                   </td>
                   <td>
                     <a class="btn btn-primary btn-rounded btn-sm" href="editar_imagen.php?id=<?php echo $Imagen['idimagenes'] ?>&idproyectos=<?php echo $id ?>">Editar</a>
-                    <button class="btn btn-danger btn-rounded btn-sm" onclick="alertEliminar('../controllers/eliminar_imagen.php?id=<?php echo $Imagen['idimagenes'] ?>&imagen=<?php echo $Imagen['urlimagen'] ?>&idproyectos=<?php echo $id ?>')">Eliminar</button>
+                    <button class="btn btn-danger btn-rounded btn-sm" onclick="alertEliminar('../../controllers/admin/eliminar_imagen.php?id=<?php echo $Imagen['idimagenes'] ?>&imagen=<?php echo $Imagen['urlimagen'] ?>&idproyectos=<?php echo $id ?>')">Eliminar</button>
                   </td>
                 </tr>
             <?php
@@ -198,7 +198,7 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         </div>
         <div class="modal-body">
 
-          <form action="../controllers/agregar_imagen.php" method="POST" enctype="multipart/form-data">
+          <form action="../../controllers/admin/agregar_imagen.php" method="POST" enctype="multipart/form-data">
 
             <label class="form-label" for="customFile">Imagen</label>
             <input type="file" class="form-control" id="customFile" name="imagen" />
@@ -223,7 +223,7 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 
 
-  <?php include('footer.php'); ?>
+  <?php include('../footer.php'); ?>
 
   <!-- End your project here-->
   <script>
@@ -244,7 +244,7 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
   </script>
 
   <!-- MDB -->
-  <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/mdb.min.js"></script>
 
   <script>
     CKEDITOR.replace('descripcion');

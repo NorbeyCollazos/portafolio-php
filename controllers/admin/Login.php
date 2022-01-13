@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/Administradores.php');
+require_once('../../models/admin/Administradores.php');
 
 if($_POST){
     echo $usuario = $_POST['usuario'];
@@ -11,13 +11,13 @@ if($_POST){
     //$consulta = $Modelo->login($usuario, $contrasena);
 
     if($Modelo->login($usuario, $contrasena)){
-        header("Location: ../views/panel_inicial.php");
+        header("Location: ../../views/admin/panel_inicial.php");
     }else{
-        header("Location: ../views/login_admin.php");
+        header("Location: ../../views/admin/");
     }
 
 }else{
-    header("Location: ../views/login_admin.php"); 
+    header("Location: ../../views/admin/"); 
 }
 
 ?>

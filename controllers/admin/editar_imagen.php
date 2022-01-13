@@ -1,21 +1,17 @@
 <?php
-require_once('../models/Proyectos.php');
+require_once('../../models/admin/Imagenes.php');
 
 if ($_POST) {
 
     $id = $_POST['id'];
-    $titulo = $_POST['titulo'];
     $descripcion = $_POST['descripcion'];
     $nombreimagen = $_POST['nombreimagen'];
-    $urlgithub = $_POST['urlgithub'];
-    $urldemo = $_POST['urldemo'];
-    $prioridad = $_POST['prioridad'];
-    $idtecnologias = $_POST['idtecnologias'];
+    $idproyectos = $_POST['idproyectos'];
 
     $extension = pathinfo($nombreimagen, PATHINFO_EXTENSION);
     $nombre_base = basename($nombreimagen, '.'.$extension); 
 
-    //validamos si la imagen viene vacia
+    //validamos si la imagen no viene vacia
     if (!empty($_FILES['imagen']['name'])) {
 
         $file_name = $_FILES['imagen']['name'];
@@ -31,7 +27,7 @@ if ($_POST) {
             return;
 
         //creamos la ruta donde se van almacenar
-        $targeDir = "../assets/img/proyectos/";
+        $targeDir = "../../assets/img/proyectos/";
 
         @rmdir($targeDir);
         //creamos las carpetas si no existen
@@ -48,13 +44,13 @@ if ($_POST) {
 
         if (move_uploaded_file($_FILES['imagen']['tmp_name'], $add)) {
 
-            $Model = new Proyectos();
-            $Model->edit($id, $titulo, $descripcion, $file_name, $urlgithub, $urldemo, $prioridad, $idtecnologias);
+            $Model = new Imagenes();
+            $Model->edit($id, $file_name, $descripcion, $idproyectos);
         }
     }else{
-        $Model = new Proyectos();
-        $Model->edit($id, $titulo, $descripcion, $nombreimagen, $urlgithub, $urldemo, $prioridad, $idtecnologias);
+        $Model = new Imagenes();
+        $Model->edit($id, $nombreimagen, $descripcion, $idproyectos);
     }
 } else {
-    header("Location: ../views/login_admin.php");
+    header("Location: ../../views/admin/");
 }

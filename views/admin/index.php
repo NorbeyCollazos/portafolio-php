@@ -27,8 +27,8 @@ if (!empty($_SESSION["ID"])) {
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="../assets/css/mdb.min.css" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../../assets/css/mdb.min.css" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
 </head>
 
 <body>
@@ -37,8 +37,8 @@ if (!empty($_SESSION["ID"])) {
     <div class="container">
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
             <div class="text-center">
-                <img class="img-fluid w-50 p-3" src="../assets/img/logo_ncr_desarrollo.png" alt="logo large">
-                <form action="../controllers/Login.php" method="POST">
+                <img class="img-fluid w-50 p-3" src="../../assets/img/logo_ncr_desarrollo.png" alt="logo large">
+                <form action="../../controllers/admin/Login.php" method="POST">
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <input type="text" id="form1Example1" class="form-control" name="usuario" />
@@ -61,12 +61,12 @@ if (!empty($_SESSION["ID"])) {
 
 
 
-    <?php include('footer.php'); ?>
+    <?php include('../footer.php'); ?>
 
     <!-- End your project here-->
 
     <!-- MDB -->
-    <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/mdb.min.js"></script>
 
 </body>
 

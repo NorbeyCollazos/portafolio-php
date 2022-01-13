@@ -1,6 +1,6 @@
 <?php
 
-require_once('../Conexion.php');
+require_once('../../Conexion.php');
 session_start();
 
 class Administradores extends Conexion{
@@ -32,14 +32,14 @@ class Administradores extends Conexion{
     public function validateSession()
     {
         if ($_SESSION["ID"] == null) {
-            header('Location: ../views/login_admin.php');
+            header('Location: ../../views/admin/');
         }
     }
 
     public function cerrarSession(){
         $_SESSION['ID'] = null;
         session_destroy();
-        header('Location: ../views/login_admin.php');
+        header('Location: ../../views/admin/');
     }
 
 }

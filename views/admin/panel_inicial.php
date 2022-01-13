@@ -1,7 +1,7 @@
 <?php
-require_once('../models/Administradores.php');
-require_once('../models/Tecnologias.php');
-require_once('../models/Proyectos.php');
+require_once('../../models/admin/Administradores.php');
+require_once('../../models/admin/Tecnologias.php');
+require_once('../../models/admin/Proyectos.php');
 $ModelAdministradores = new Administradores();
 $ModelAdministradores->validateSession();
 
@@ -26,19 +26,19 @@ if($_GET){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adminisrador</title>
     <!-- MDB icon -->
-    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../../assets/img/favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="../assets/css/mdb.min.css" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../../assets/css/mdb.min.css" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
 </head>
 
 <body>
 
-<?php include('header.php'); ?>
+<?php include('../header.php'); ?>
 
 
     <div class="container mt-3 mb-3">
@@ -90,7 +90,7 @@ if($_GET){
                                     <td><?php echo $Tecnologia['etiqueta'] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-rounded btn-sm" href="editar_tecnologia.php?id=<?php echo $Tecnologia['idtecnologias'] ?>">Editar</a>
-                                        <button onclick="alertEliminar('../controllers/eliminar_tecnologia.php?id=<?php echo $Tecnologia['idtecnologias'] ?>');" class="btn btn-danger btn-rounded btn-sm">Eliminar</button>
+                                        <button onclick="alertEliminar('../../controllers/admin/eliminar_tecnologia.php?id=<?php echo $Tecnologia['idtecnologias'] ?>');" class="btn btn-danger btn-rounded btn-sm">Eliminar</button>
                                     </td>
                                 </tr>
                         <?php
@@ -131,7 +131,7 @@ if($_GET){
                                     </td>
                                     <td>
                                         <a class="btn btn-primary btn-rounded btn-sm" href="editar_proyecto.php?id=<?php echo $Proyecto['idproyectos'] ?>">Editar</a>
-                                        <button onclick="alertEliminar('../controllers/eliminar_proyecto.php?id=<?php echo $Proyecto['idproyectos'] ?>&imagen=<?php echo $Proyecto['imagen'] ?>')" class="btn btn-danger btn-rounded btn-sm">Eliminar</button>
+                                        <button onclick="alertEliminar('../../controllers/admin/eliminar_proyecto.php?id=<?php echo $Proyecto['idproyectos'] ?>&imagen=<?php echo $Proyecto['imagen'] ?>')" class="btn btn-danger btn-rounded btn-sm">Eliminar</button>
                                     </td>
                                 </tr>
                         <?php
@@ -152,7 +152,7 @@ if($_GET){
 
 
 
-    <?php include('footer.php'); ?>
+    <?php include('../footer.php'); ?>
 
     <!-- End your project here-->
 
@@ -168,7 +168,7 @@ if($_GET){
     </script>
 
     <!-- MDB -->
-    <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/mdb.min.js"></script>
 
 </body>
 

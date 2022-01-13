@@ -1,7 +1,7 @@
 <?php
 
-require_once('../models/Administradores.php');
-require_once('../models/Proyectos.php');
+require_once('../../models/admin/Administradores.php');
+require_once('../../models/admin/Proyectos.php');
 
 $ModeloAdministradores = new Administradores();
 $ModeloAdministradores->validateSession();

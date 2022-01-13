@@ -1,5 +1,5 @@
 <?php
-require_once('../Conexion.php');
+require_once('../../Conexion.php');
 
 class Imagenes extends Conexion {
 
@@ -14,9 +14,9 @@ class Imagenes extends Conexion {
         $statement->bindParam(':descripcion',$descripcion);
         $statement->bindParam(':idproyectos',$idproyectos);
         if($statement->execute()){
-            header("Location: ../views/editar_proyecto.php?id=$idproyectos");
+            header("Location: ../../views/admin/editar_proyecto.php?id=$idproyectos");
         }else{
-            header("Location: ../views/editar_proyecto.php?id=$idproyectos");
+            header("Location: ../../views/admin/editar_proyecto.php?id=$idproyectos");
         }
     }
 
@@ -61,9 +61,9 @@ class Imagenes extends Conexion {
         $statement->bindParam(':descripcion',$descripcion);
         //$statement->bindParam(':idproyectos',$idproyectos);
         if($statement->execute()){
-            header("Location: ../views/editar_proyecto.php?id=$idproyectos");
+            header("Location: ../../views/admin/editar_proyecto.php?id=$idproyectos");
         }else{
-            header("Location: ../views/editar_proyecto.php?id=$idproyectos");
+            header("Location: ../../views/admin/editar_proyecto.php?id=$idproyectos");
         }
     }
 
@@ -71,10 +71,10 @@ class Imagenes extends Conexion {
         $statement = $this->db->prepare("DELETE FROM imagenes WHERE idimagenes = :id");
         $statement->bindParam(':id', $id);
         if($statement->execute()){
-            unlink('../assets/img/proyectos/'.$imagen);//para eliminar la imagen del servidor
-            header("Location: ../views/editar_proyecto.php?id=$idproyectos");
+            unlink('../../assets/img/proyectos/'.$imagen);//para eliminar la imagen del servidor
+            header("Location: ../../views/admin/editar_proyecto.php?id=$idproyectos");
         }else{
-            header("Location: ../views/editar_proyecto.php?id=$idproyectos");
+            header("Location: ../../views/admin/editar_proyecto.php?id=$idproyectos");
         }
 
     }

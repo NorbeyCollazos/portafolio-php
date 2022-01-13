@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/Tecnologias.php');
+require_once('../../models/admin/Tecnologias.php');
 
 if($_POST){
 
@@ -13,7 +13,7 @@ if($_POST){
     $Modelo->edit($id, $titulo, $etiqueta, $prioridad);
 
 }else{
-    header('Location: ../views/login_admin.php');
+    header('Location: ../../views/admin/');
 }
 
 

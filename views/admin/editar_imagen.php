@@ -1,6 +1,6 @@
 <?php
-require_once('../models/Administradores.php');
-require_once('../models/Imagenes.php');
+require_once('../../models/admin/Administradores.php');
+require_once('../../models/admin/Imagenes.php');
 $ModelAdministradores = new Administradores();
 $ModelAdministradores->validateSession();
 
@@ -21,19 +21,19 @@ $Imagenes = $ModelImagenes->getById($id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar imagen</title>
     <!-- MDB icon -->
-    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../../assets/img/favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="../assets/css/mdb.min.css" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../../assets/css/mdb.min.css" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
 </head>
 
 <body>
 
-    <?php include('header.php'); ?>
+    <?php include('../header.php'); ?>
 
     <div class="container p-3">
 
@@ -41,7 +41,7 @@ $Imagenes = $ModelImagenes->getById($id);
             <h5>EDITAR IMAGEN</h5>
         </div>
 
-        <form action="../controllers/editar_imagen.php" method="post" enctype="multipart/form-data">
+        <form action="../../controllers/admin/editar_imagen.php" method="post" enctype="multipart/form-data">
 
             <input type="hidden" name="id" value="<?php echo $id ?>" />
             <input type="hidden" name="idproyectos" value="<?php echo $idproyectos ?>" />
@@ -51,7 +51,7 @@ $Imagenes = $ModelImagenes->getById($id);
                 foreach ($Imagenes as $Imagen) {
             ?>
 
-                    <img width="80" height="80" src="../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?>" alt="">
+                    <img width="80" height="80" src="../../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?>" alt="">
                     <br>
                     <label class="form-label" for="customFile">Imagen</label>
                     <input type="file" class="form-control" id="customFile" name="imagen" />
@@ -71,11 +71,11 @@ $Imagenes = $ModelImagenes->getById($id);
 
     </div>
 
-    <?php include('footer.php'); ?>
+    <?php include('../footer.php'); ?>
 
 
     <!-- MDB -->
-    <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/mdb.min.js"></script>
 
 </body>
 

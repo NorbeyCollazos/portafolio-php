@@ -1,5 +1,5 @@
 <?php
-require_once('../Conexion.php');
+require_once('../../Conexion.php');
 
 class Proyectos extends Conexion {
 
@@ -20,9 +20,9 @@ class Proyectos extends Conexion {
         $statement->bindParam(':prioridad', $prioridad);
         $statement->bindParam(':idtecnologias', $idtecnologias);
         if($statement->execute()){
-            header("Location: ../views/panel_inicial.php?identab=proyectos");
+            header("Location: ../../views/admin/panel_inicial.php?identab=proyectos");
         }else{
-            header("Location: ../views/agregar_proyecto.php"); 
+            header("Location: ../../views/admin/agregar_proyecto.php"); 
         }
     }
 
@@ -90,9 +90,9 @@ class Proyectos extends Conexion {
         $statement->bindParam(':prioridad', $prioridad);
         $statement->bindParam(':idtecnologias', $idtecnologias);
         if($statement->execute()){
-            header("Location: ../views/panel_inicial.php?identab=proyectos");
+            header("Location: ../../views/admin/panel_inicial.php?identab=proyectos");
         }else{
-            header("Location: ../views/panel_inicial.php?identab=proyectos"); 
+            header("Location: ../../views/admin/panel_inicial.php?identab=proyectos"); 
         }
     }
 
@@ -100,10 +100,10 @@ class Proyectos extends Conexion {
         $statement = $this->db->prepare("DELETE FROM proyectos WHERE idproyectos = :id");
         $statement->bindParam(':id', $id);
         if($statement->execute()){
-            unlink('../assets/img/proyectos/'.$imagen);//para eliminar la imagen del servidor
-            header("Location: ../views/panel_inicial.php?identab=proyectos");
+            unlink('../../assets/img/proyectos/'.$imagen);//para eliminar la imagen del servidor
+            header("Location: ../../views/admin/panel_inicial.php?identab=proyectos");
         }else{
-            header("Location: ../views/panel_inicial.php?identab=proyectos");
+            header("Location: ../../views/admin/panel_inicial.php?identab=proyectos");
         }
 
     }

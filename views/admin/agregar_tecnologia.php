@@ -1,5 +1,5 @@
 <?php
-require_once('../models/Administradores.php');
+require_once('../../models/admin/Administradores.php');
 $ModelAdministradores = new Administradores();
 $ModelAdministradores->validateSession();
 
@@ -16,19 +16,19 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adminisrador</title>
   <!-- MDB icon -->
-  <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../../assets/img/favicon.ico" type="image/x-icon" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
-  <link rel="stylesheet" href="../assets/css/mdb.min.css" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/mdb.min.css" />
+  <link rel="stylesheet" href="../../assets/css/main.css" />
 </head>
 
 <body>
 
-<?php include('header.php'); ?>
+<?php include('../header.php'); ?>
 
 
   <div class="container mt-3 mb-3">
@@ -37,7 +37,7 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
       <h5>AGREGAR TECNOLOGÍA</h5>
     </div>
 
-    <form action="../controllers/agregar_tecnologia.php" method="post">
+    <form action="../../controllers/admin/agregar_tecnologia.php" method="post">
       <!-- 2 column grid layout with text inputs for the first and last names -->
 
       <div class="form-outline mb-4 col-md-6 col-lg-6 col-sm-12">
@@ -74,12 +74,12 @@ $Prioridades = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 
 
-  <?php include('footer.php'); ?>
+  <?php include('../footer.php'); ?>
 
   <!-- End your project here-->
 
   <!-- MDB -->
-  <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/mdb.min.js"></script>
 
 </body>
 

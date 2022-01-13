@@ -4,7 +4,7 @@
     <div class="container">
       <!-- Navbar brand -->
       <a class="navbar-brand me-2" href="../index.php">
-        <img src="../assets/img/logo_ncr_desarrollo.png" height="50" alt="" loading="lazy" style="margin-top: -1px;" />
+        <img src="../../assets/img/logo_ncr_desarrollo.png" height="50" alt="" loading="lazy" style="margin-top: -1px;" />
       </a>
 
       <!-- Toggle button -->
@@ -26,7 +26,7 @@
           <a href="panel_inicial.php" class="btn btn-link px-3 me-2">
             <i class="fas fa-home"></i> Inicio
           </a>
-          <a class="btn btn-link px-3" href="../controllers/Salir.php">
+          <a class="btn btn-link px-3" href="../../controllers/admin/Salir.php">
             Cerrar sesión <i class="fas fa-sign-out-alt"></i></a>
         </div>
       </div>

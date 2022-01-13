@@ -1,6 +1,6 @@
 <?php
-require_once('../models/Proyectos.php');
-require_once('../models/Imagenes.php');
+require_once('../../models/admin/Proyectos.php');
+require_once('../../models/admin/Imagenes.php');
 
 $id = $_GET['id'];
 
@@ -22,14 +22,14 @@ $Imagenes = $ModelImagenes->getByIdProyecto($id);
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Portafolio|Norbey Collazos Ramirez</title>
   <!-- MDB icon -->
-  <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../../assets/img/favicon.ico" type="image/x-icon" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
-  <link rel="stylesheet" href="../assets/css/mdb.min.css" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/mdb.min.css" />
+  <link rel="stylesheet" href="../../assets/css/main.css" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
@@ -116,7 +116,7 @@ $Imagenes = $ModelImagenes->getByIdProyecto($id);
                     foreach ($Imagenes as $Imagen) {
                   ?>
                       <div class="carousel-item <?php if ($Imagen === reset($Imagenes)) echo 'active' ?>">
-                        <img src="../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?>" class="d-block img-fluid" alt="..." style="height: 300px; margin-left: auto; margin-right: auto;" />
+                        <img src="../../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?>" class="d-block img-fluid" alt="..." style="height: 300px; margin-left: auto; margin-right: auto;" />
                         <div class="carousel-caption d-none d-md-block">
                           <!--<h5>First slide label</h5>
                           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
@@ -187,10 +187,10 @@ $Imagenes = $ModelImagenes->getByIdProyecto($id);
   </div>
   <!-- End your project here-->
 
-  <?php include('footer.php'); ?>
+  <?php include('../footer.php'); ?>
 
   <!-- MDB -->
-  <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/mdb.min.js"></script>
   <!-- Custom scripts -->
   <script type="text/javascript"></script>
   <script>

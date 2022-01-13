@@ -1,6 +1,6 @@
 <?php
 
-require_once('../Conexion.php');
+require_once('../../Conexion.php');
 
 class Tecnologias extends Conexion{
 
@@ -14,9 +14,9 @@ class Tecnologias extends Conexion{
         $statement->bindParam(':etiqueta', $etiqueta);
         $statement->bindParam(':prioridad', $prioridad);
         if($statement->execute()){
-            header("Location: ../views/panel_inicial.php");
+            header("Location: ../../views/admin/panel_inicial.php");
         }else{
-            header("Location: ../views/agregar_tecnologia.php");
+            header("Location: ../../views/admin/agregar_tecnologia.php");
         }
     }
 
@@ -49,9 +49,9 @@ class Tecnologias extends Conexion{
         $statement->bindParam(':etiqueta', $etiqueta);
         $statement->bindParam(':prioridad', $prioridad);
         if($statement->execute()){
-            header("Location: ../views/panel_inicial.php");
+            header("Location: ../../views/admin/panel_inicial.php");
         }else{
-            header("Location: ../views/agregar_tecnologia.php");
+            header("Location: ../../views/admin/agregar_tecnologia.php");
         }
     }
 
@@ -59,9 +59,9 @@ class Tecnologias extends Conexion{
         $statement = $this->db->prepare("DELETE FROM tecnologias WHERE idtecnologias = :id");
         $statement->bindParam(':id',$id);
         if($statement->execute()){
-            header("Location: ../views/panel_inicial.php");
+            header("Location: ../../views/admin/panel_inicial.php");
         }else{
-            header("Location: ../views/panel_inicial.php");
+            header("Location: ../../views/admin/panel_inicial.php");
         }
     }
 

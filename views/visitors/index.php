@@ -1,18 +1,19 @@
 <?php
-require_once('../models/Tecnologias.php');
-require_once('../models/Proyectos.php');
+require_once('../../models/admin/Tecnologias.php');
+require_once('../../models/admin/Proyectos.php');
 
-if ($_GET) {
-  //$t = $_GET['t'];
-  $id = $_GET['id'];
-}
 
 $ModelTecnologias = new Tecnologias();
 $Tecnologias = $ModelTecnologias->get();
 
 $ModelProyectos = new Proyectos();
 
-$TitleTecnologia = $ModelProyectos->getTitleTecnologia($id); 
+if ($_GET) {
+  $id = $_GET['id'];
+  $TitleTecnologia = $ModelProyectos->getTitleTecnologia($id); 
+}
+
+
 
 ?>
 
@@ -25,14 +26,14 @@ $TitleTecnologia = $ModelProyectos->getTitleTecnologia($id);
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Portafolio|Norbey Collazos Ramirez</title>
   <!-- MDB icon -->
-  <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../../assets/img/favicon.ico" type="image/x-icon" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
-  <link rel="stylesheet" href="../assets/css/mdb.min.css" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/mdb.min.css" />
+  <link rel="stylesheet" href="../../assets/css/main.css" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
@@ -42,7 +43,7 @@ $TitleTecnologia = $ModelProyectos->getTitleTecnologia($id);
 <body>
   <header class="p-5 text-center bg-image">
 
-    <img class="img-fluid w-50 p-3" id="logo" src="../assets/img/logo_blanco.png" alt="logo large">
+    <img class="img-fluid w-50 p-3" id="logo" src="../../assets/img/logo_blanco.png" alt="logo large">
     <div class="d-flex justify-content-center align-items-center h-100 sobreponer" style="z-index: 100;">
       <div class="text-white">
         <h1 class="mb-3" id="ncr">NCR <span id="desarrollo">Desarrollo</span></h1>
@@ -55,7 +56,7 @@ $TitleTecnologia = $ModelProyectos->getTitleTecnologia($id);
     </div>
 
     <video autoplay="" loop="" muted="">
-      <source src="../assets/src/videohead.mp4">
+      <source src="../../assets/src/videohead.mp4">
     </video>
 
 
@@ -90,7 +91,7 @@ $TitleTecnologia = $ModelProyectos->getTitleTecnologia($id);
 
                 <div class="bg-image card hover-shadow" style=" height: 300px; cursor: pointer;" onclick="iraDescripcion('descripcion.php?id=<?php echo $Proyecto1['idproyectos'] ?>')">
 
-                  <img src="../assets/img/proyectos/<?php echo $Proyecto1['imagen'] ?>" class="img-fluid w-100 " alt="Sample" />
+                  <img src="../../assets/img/proyectos/<?php echo $Proyecto1['imagen'] ?>" class="img-fluid w-100 " alt="Sample" />
                   <div class="mask" style="background-color: rgba(0, 0, 0, 0.9);">
                     <h5 class="text-light d-flex justify-content-center align-items-center h-100  m-3 text-center"><?php echo $Proyecto1['titulo'] ?></h5>
                     <div class="d-flex justify-content-center align-items-center h-100 botones_proyect">
@@ -144,7 +145,7 @@ $TitleTecnologia = $ModelProyectos->getTitleTecnologia($id);
                         <a href="#">
                           <div class="bg-image card hover-shadow" style=" height: 300px; cursor: pointer;" onclick="iraDescripcion('descripcion.php?id=<?php echo $Proyecto['idproyectos'] ?>')">
 
-                            <img src="../assets/img/proyectos/<?php echo $Proyecto['imagen'] ?>" class="img-fluid w-100 " alt="Sample" />
+                            <img src="../../assets/img/proyectos/<?php echo $Proyecto['imagen'] ?>" class="img-fluid w-100 " alt="Sample" />
                             <div class="mask" style="background-color: rgba(0, 0, 0, 0.9);">
                               <h5 class="text-light d-flex justify-content-center align-items-center h-100  m-3 text-center"><?php echo $Proyecto['titulo'] ?></h5>
                               <div class="d-flex justify-content-center align-items-center h-100 botones_proyect">
@@ -181,12 +182,12 @@ $TitleTecnologia = $ModelProyectos->getTitleTecnologia($id);
 
   </div>
 
-  <?php include('footer.php'); ?>
+  <?php include('../footer.php'); ?>
 
   <!-- End your project here-->
 
   <!-- MDB -->
-  <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/mdb.min.js"></script>
   <!-- Custom scripts -->
   <script type="text/javascript">
     function iraDescripcion(url) {

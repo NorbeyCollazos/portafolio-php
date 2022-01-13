@@ -1,5 +1,5 @@
 <?php
-require_once('../models/Proyectos.php');
+require_once('../../models/admin/Proyectos.php');
 
 if($_POST){
 
@@ -23,7 +23,7 @@ if($_POST){
         return;
 
     //creamos la ruta donde se van almacenar
-    $targeDir = "../assets/img/proyectos/";
+    $targeDir = "../../assets/img/proyectos/";
 
     @rmdir($targeDir);
     //creamos las carpetas si no existen
@@ -53,7 +53,7 @@ if($_POST){
     
 
 }else{
-    header("Location: ../views/login_admin.php");
+    header("Location: ../../views/admin/");
 }
 
 ?>
