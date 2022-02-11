@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  .caja {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    background: #333944;
+  }
+
+  .box {
+    width: 450px;
+    height: 300px;
+    background: #CCC;
+    overflow: hidden;
+  }
+
+  .box img {
+    width: 100%;
+    height: auto;
+  }
+
+  @supports(object-fit: cover) {
+    .box img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  .item {
+    transition: 0.5s ease-in-out;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  .item:hover {
+    filter: brightness(80%);
+  }
+
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    width: 100%;
+    margin: auto;
+    grid-gap: 10px;
+    overflow: hidden;
+  }
+
+
+  .galeria img {
+    width: 100%;
+    vertical-align: top;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  .galeria>a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .galeria a:hover img {
+    filter: blur(2px);
+    transform: rotate(10deg) scale(1.5);
+
+  }
+
+  
+  @media (min-width:320px) {
+
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+    .galeria {
+      width: 100%;
+    }
+  }
+
+  @media (min-width:480px) {
+    /* smartphones, Android phones, landscape iPhone */
+    .galeria {
+        width: 100%;
+      }
+  }
+
+  @media (min-width:600px) {
+    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+    .galeria {
+        width: 50%;
+      }
+  }
+
+  @media (min-width:801px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .galeria {
+        width: 50%;
+      }
+  }
+
+  @media (min-width:1025px) {
+    /* big landscape tablets, laptops, and desktops */
+    .galeria {
+        width: 50%;
+      }
+  }
+
+  @media (min-width:1281px) {
+
+    /* hi-res laptops and desktops */
+    .galeria {
+      width: 50%;
+    }
+  }

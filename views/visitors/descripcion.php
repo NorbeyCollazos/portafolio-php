@@ -18,7 +18,8 @@ $Imagenes = $ModelImagenes->getByIdProyecto($id);
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Portafolio|Norbey Collazos Ramirez</title>
   <!-- MDB icon -->
@@ -31,42 +32,16 @@ $Imagenes = $ModelImagenes->getByIdProyecto($id);
   <link rel="stylesheet" href="../../assets/css/mdb.min.css" />
   <link rel="stylesheet" href="../../assets/css/main.css" />
 
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
-  <style type="text/css">
-    * {
-      margin: 0;
-      padding: 0;
-    }
+  <!--librerias para la galeria de imagenes con el ligbox-->
+  <script src="../../assets/js/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" />
 
-    .caja {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: center;
-      align-items: center;
-      background: #333944;
-    }
 
-    .box {
-      width: 450px;
-      height: 300px;
-      background: #CCC;
-      overflow: hidden;
-    }
-
-    .box img {
-      width: 100%;
-      height: auto;
-    }
-
-    @supports(object-fit: cover) {
-      .box img {
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../../assets/css/estilos_descripcion.css" />
 
 
 </head>
@@ -88,75 +63,6 @@ $Imagenes = $ModelImagenes->getByIdProyecto($id);
         <div class="row">
 
           <div class="col-md-6 col-sm-12 col-lg-6 mb-3">
-            <div class="bg-image card">
-
-              <!-- Carousel wrapper -->
-              <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
-                <!-- Indicators -->
-                <div class="carousel-indicators">
-                  <?php
-                  if ($Imagenes != null) {
-                    foreach ($Imagenes as $Imagen) {
-                  ?>
-                      <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <!--<button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2" aria-label="Slide 3"></button>-->
-                  <?php
-                    }
-                  }
-                  ?>
-                </div>
-
-                <!-- Inner -->
-                <div class="carousel-inner">
-                  <!-- Single item -->
-                  <?php
-                  $pri = true;
-                  if ($Imagenes != null) {
-                    foreach ($Imagenes as $Imagen) {
-                  ?>
-                      <div class="carousel-item <?php if ($Imagen === reset($Imagenes)) echo 'active' ?>">
-                        <img src="../../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?>" class="d-block img-fluid" alt="..." style="height: 300px; margin-left: auto; margin-right: auto;" />
-                        <div class="carousel-caption d-none d-md-block">
-                          <!--<h5>First slide label</h5>
-                          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
-                        </div>
-
-                      </div>
-                  <?php
-                    }
-                  }
-                  ?>
-
-
-                </div>
-                <!-- Inner -->
-
-                <!-- Controls -->
-                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-              <!-- Carousel wrapper -->
-
-
-              <div class="card-body">
-                <a class="btn btn-outline-primary btn-lg m-2" href="<?php echo $Proyecto['urlgithub'] ?>" role="button" rel="nofollow" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a class="btn btn-outline-success btn-lg m-2" href="<?php echo $Proyecto['urldemo'] ?>" role="button" rel="nofollow" target="_blank"><i class="fas fa-eye"></i> Ver Demo</i></a>
-
-
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-6 col-sm-12 col-lg-6 mb-3">
-
 
             <div class="card">
               <div class="card-body">
@@ -172,10 +78,41 @@ $Imagenes = $ModelImagenes->getByIdProyecto($id);
 
           </div>
 
+          <div class="col-md-6 col-sm-12 col-lg-6 mb-3">
+            <div class="bg-image card content-imagenes">
+
+              <div class="card-body">
+
+                <a class="btn btn-outline-primary btn-lg m-2" href="<?php echo $Proyecto['urlgithub'] ?>" role="button" rel="nofollow" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a class="btn btn-outline-success btn-lg m-2" href="<?php echo $Proyecto['urldemo'] ?>" role="button" rel="nofollow" target="_blank"><i class="fas fa-eye"></i> Ver Demo</i></a>
+
+                <div class="lightbox">
+                  <div class="row">
+                    <?php
+                    if ($Imagenes != null) {
+                      foreach ($Imagenes as $Imagen) {
+                    ?>
+
+                        <div class="galeria col-md-12 col-sm-12 col-lg-12 mt-3">
+                          <a href="../../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?>" class="fancybox" data-fancybox="gallery1">
+                            <img class="" src="../../assets/img/proyectos/<?php echo $Imagen['urlimagen'] ?>" alt="">
+                          </a>
+
+                        </div>
 
 
+                    <?php
+                      }
+                    }
+                    ?>
 
+                  </div>
+                </div>
 
+              </div>
+
+            </div>
+          </div>
 
         </div>
 
